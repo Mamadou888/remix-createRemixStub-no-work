@@ -1,13 +1,13 @@
-import { json } from "@remix-run/node"; // or cloudflare/deno
+import { json } from "@remix-run/node"; 
 import { useLoaderData } from "@remix-run/react";
 import React from "react";
 
 export async function loader() {
-  return json({ parent: true });
+  return json({ child: true });
 }
 
-export default function Parent() {
+export default function ChildComponent() {
   const data = useLoaderData();
     
-  return <div>Parent component: {JSON.stringify(data)}</div>;
+  return <div>child loader data: {JSON.stringify(data)}</div>;
 }
